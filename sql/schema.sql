@@ -3,10 +3,11 @@ DROP TABLE breweries;
 DROP TABLE costs;
 DROP TABLE intensity;
 DROP TABLE prevalence;
+DROP TABLE health;
 
 CREATE TABLE breweries(
     state VARCHAR NOT NULL,
-    name VARCHAR NOT NULL,
+    name INT NOT NULL,
     PRIMARY KEY (state)
 );
 
@@ -27,6 +28,12 @@ CREATE TABLE intensity(
 CREATE TABLE prevalence(
     state VARCHAR NOT NULL,
     percentage INT,
+    PRIMARY KEY (state)
+);
+
+CREATE TABLE health(
+    state VARCHAR NOT NULL,
+    health_percent INT,
     PRIMARY KEY (state)
 );
 
