@@ -1,38 +1,42 @@
-var svgWidth = 500;
-var svgHeight = 300;
+function resize(){
+    var svgArea = d3.select("#chart").select("svg");
+    var svgWidth= parseInt(d3.select("#chart").style("width"));
+    var svgHeight= svgWidth - svgWidth / 3.9;
+    if (!svgArea.empty()) {
+      svgArea.remove();
+    }
+  // var w = parseInt(d3.select("#scatter").style("width"));
+  // var h = w - w / 3.9;
+  var margin = {
+    top: 20,
+    right: 100,
+    bottom: 80,
+    left: 100
+  };
+  var width = svgWidth - margin.left - margin.right;
+  var height = svgHeight - margin.top - margin.bottom;
 
-var margin = {
-    top: 10,
-    right: 10,
-    bottom: 10,
-    left: 10
-};
-
-var width = svgWidth - margin.left - margin.right;
-var height = svgHeight - margin.top - margin.bottom;
-
-var svg = d3
-    .select(".bubble")
+  var svg = d3
+    .select("#chart")
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
 
-var chartGroup = svg.append("g")
+  var chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-var chosenXAxis = "average_num_of_drinks";
-function xScale(alcoholData, chosenXAxis) {
+  var chosenXAxis = "average_num_of_drinks";
+  function xScale(alcoholData, chosenXAxis) {
     // create scales
     var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(alcoholData, d => d[chosenXAxis]) * 0.8,
-        d3.max(alcoholData, d => d[chosenXAxis]) * 0.8
-        ])
+        .domain([d3.min(alcoholData, d => d[chosenXAxis]-1),
+        d3.max(alcoholData, d => d[chosenXAxis])])
         .range([0, width]);
 
     return xLinearScale;
 
-}
-function renderAxes(newXScale, xAxis) {
+  }
+  function renderAxes(newXScale, xAxis) {
     var bottomAxis = d3.axisBottom(newXScale);
 
     xAxis.transition()
@@ -40,46 +44,53 @@ function renderAxes(newXScale, xAxis) {
         .call(bottomAxis);
 
     return xAxis;
-}
-function renderCircles(circlesGroup, newXScale, chosenXAxis) {
+  }
+  function renderCircles(circlesGroup, newXScale, chosenXAxis) {
 
     circlesGroup.transition()
         .duration(1000)
         .attr("cx", d => newXScale(d[chosenXAxis]));
 
     return circlesGroup;
-}
+  }
+      // function used for updating state abbr with a transition to new locations
+      function renderAbbr(abbrGroup, xLinearScale, yLinearScale, chosenXAxis) {
+        abbrGroup.transition()
+            .duration(1000)
+            .attr("x", d => xLinearScale  (d[chosenXAxis]))
+            .attr("y", d => yLinearScale(d.name));
+        return abbrGroup;
+      }
+    function updateToolTip(chosenXAxis, circlesGroup) {
 
-function updateToolTip(chosenXAxis, circlesGroup) {
+        var label;
 
-    var label;
+        if (chosenXAxis === "average_num_of_drinks") {
+            label = "Intensity:";
+        }
+        else {
+            label = "Prevalence:";
+        }
 
-    if (chosenXAxis === "average_num_of_drinks") {
-        label = "Intensity:";
+        var toolTip = d3.tip()
+            .attr("class", "tooltip")
+            .offset([80, -60])
+            .html(function (d) {
+                return (`${d.state}<br>${label} ${d[chosenXAxis]}`);
+            });
+
+        circlesGroup.call(toolTip);
+
+        circlesGroup.on("mouseover", function (data) {
+            toolTip.show(data);
+        })
+            // onmouseout event
+            .on("mouseout", function (data, index) {
+                toolTip.hide(data);
+            });
+
+        return circlesGroup;
     }
-    else {
-        label = "Prevalence:";
-    }
-
-    var toolTip = d3.tip()
-        .attr("class", "tooltip")
-        .offset([80, -60])
-        .html(function (d) {
-            return (`${d.state}<br>${label} ${d[chosenXAxis]}`);
-        });
-
-    circlesGroup.call(toolTip);
-
-    circlesGroup.on("mouseover", function (data) {
-        toolTip.show(data);
-    })
-        // onmouseout event
-        .on("mouseout", function (data, index) {
-            toolTip.hide(data);
-        });
-
-    return circlesGroup;
-}
 
 d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
     if (err) throw err;
@@ -120,9 +131,18 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d.name))
-        .attr("r", 20)
-        .attr("fill", "pink")
-        .attr("opacity", ".5");
+        .attr("r", 13)
+        .attr("class", "stateCircle");
+    
+    var stateAbbr = chartGroup.append("g")
+    var abbrGrp = stateAbbr.selectAll("text")
+        .data(alcoholData)
+        .enter()
+        .append("text")
+        .attr("x", d => xLinearScale(d[chosenXAxis]))
+        .attr("y", d => yLinearScale(d.name))
+        .classed("stateText", true)
+        .text(d => d.state);
 
     // Create group for two x-axis labels
     var labelsGroup = chartGroup.append("g")
@@ -130,7 +150,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 
     var intensityLabel = labelsGroup.append("text")
         .attr("x", 0)
-        .attr("y", 0)
+        .attr("y", 20)
         .attr("value", "average_num_of_drinks") // value to grab for event listener
         .classed("active", true)
         .text("Average # of drinks");
@@ -138,7 +158,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 
     var prevalenceLabel = labelsGroup.append("text")
         .attr("x", 0)
-        .attr("y", 0)
+        .attr("y", 40)
         .attr("value", "percentage") // value to grab for event listener
         .classed("inactive", true)
         .text("Prevalence Percentage of Bringe Drinking");
@@ -177,6 +197,8 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
                 // updates circles with new x values
                 circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis);
 
+                abbrGrp = renderAbbr(abbrGrp, xLinearScale, yLinearScale, chosenXAxis);
+
                 // updates tooltips with new info
                 circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
@@ -202,3 +224,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 }).catch(function (error) {
     console.log(error);
 });
+};
+resize()
+
+d3.select(window).on("resize", resize)

@@ -1,8 +1,16 @@
-body {
+html {
+    position: relative;
+    min-height: 100%;
     border-radius: 8px;
+    
   }
+
+Body {
+    padding-bottom: 80px;
+    
+}
   
-  .bubble::before {
+  .chart::before {
     position: absolute;
     top: 50px;
     left: 300px;
@@ -11,7 +19,7 @@ body {
     width: 400px;
     height: 300px;
     content: " ";
-    /* background-image: url("maxresdefault.jpg"); */
+    background-color: aqua;
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
@@ -20,18 +28,19 @@ body {
   
   .tooltip {
     position: absolute;
-    width: 135px;
+    width: 100px;
     height: 60px;
     padding: 2px;
-    padding-top: 8px;
+    padding-top: 2px;
     font: 12px sans-serif;
     color: white;
     text-align: center;
-    background: #551aaf;
+    background: deepskyblue;
     border: 0;
     border-radius: 10px;
   }
   
+
   .axis-text {
     font-family: sans-serif;
     font-weight: bold;
@@ -59,3 +68,21 @@ body {
     cursor: pointer;
   }
   
+  /* font size dependent on radius, see app.js */
+.stateText {
+    font-family: sans-serif;
+    fill: mediumblue;
+    text-anchor: middle;
+    font-size: 10px;
+  }
+  
+  .stateCircle {
+    fill: gold;
+    stroke: black;
+    border: 5px solid;
+    color: #e3e3e3;
+  }
+  
+  .stateCircle:hover {
+    color: midnightblue;
+  }
