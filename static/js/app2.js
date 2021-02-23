@@ -1,4 +1,4 @@
-d3.csv('Data/merged_WO_breweries.csv').then(function(beerData, err) {
+d3.csv('Data/merged_data.csv').then(function(beerData, err) {
     if (err) throw err;
     console.log(beerData);
 

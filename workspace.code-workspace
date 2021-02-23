@@ -1,16 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "../Homework/Plotly-Challenge-"
-		},
-		{
-			"path": "../utsa-san-data-pt-09-2020-u-c/Activities/Week09-3"
-		},
-		{
 			"path": "."
+		},
+		{
+			"path": "../../Project_2B"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Project_2B"
+		"liveServer.settings.multiRootWorkspaceName": "Project-Two"
 	}
 }
