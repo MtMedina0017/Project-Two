@@ -1,37 +1,41 @@
 html {
-    position: relative;
-    min-height: 100%;
-    border-radius: 8px;
+    padding: 10%;
+    position: absolute;
+    min-height: 50%;
+    border-radius: 25px;
+    background-color: black;
     
   }
-
-Body {
+body {
+    /* position: relative; */
     padding-bottom: 80px;
     
 }
-  
-  .chart::before {
-    position: absolute;
-    top: 50px;
-    left: 300px;
-    z-index: -1;
-    display: block;
-    width: 400px;
-    height: 300px;
-    content: " ";
-    background-color: aqua;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-    opacity: 0.3;
-  }
+.container {
+    background-color: black;
+}
+.container h1 {
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: ghostwhite;
+}
+p {
+    text-align: match-parent;
+    font-weight: 500;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-stretch: expanded;
+    color: ghostwhite;
+}
   
   .tooltip {
     position: absolute;
-    width: 100px;
-    height: 60px;
+    width: 138px;
+    height: 62px;
     padding: 2px;
     padding-top: 2px;
+    padding-left: 2px;
     font: 12px sans-serif;
     color: white;
     text-align: center;
@@ -40,25 +44,30 @@ Body {
     border-radius: 10px;
   }
   
-
+#chart {
+    background-color: paleturquoise;
+}
   .axis-text {
-    font-family: sans-serif;
     font-weight: bold;
-    fill: #551aaf;
+    font-size: large;
+    font-family: sans-serif;
+    fill: midnightblue;
     text-anchor: middle;
   }
   
   .active {
     font-weight: bold;
+    font-size: large;
     fill: #000;
-    fill: #551aaf;
+    fill: midnightblue;
     transition: fill 0.3s ease-out;
     text-anchor: middle;
   }
   
   .inactive {
+    font-size: large;
     font-weight: lighter;
-    fill: #551aaf;
+    fill: midnightblue;
     transition: fill 0.3s ease-out;
     text-anchor: middle;
   }
@@ -71,18 +80,23 @@ Body {
   /* font size dependent on radius, see app.js */
 .stateText {
     font-family: sans-serif;
-    fill: mediumblue;
+    fill: black;
     text-anchor: middle;
-    font-size: 10px;
+    font-size: 12px;
   }
   
   .stateCircle {
-    fill: gold;
+    fill: silver;
     stroke: black;
     border: 5px solid;
-    color: #e3e3e3;
   }
   
   .stateCircle:hover {
     color: midnightblue;
   }
+.x-axis {
+    font-size: medium;
+}
+.y-axis {
+    font-size: medium;
+}
