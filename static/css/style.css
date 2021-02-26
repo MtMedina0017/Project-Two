@@ -100,3 +100,16 @@ p {
 .y-axis {
     font-size: medium;
 }
+#demo-svg path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 4s linear alternate infinite;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
