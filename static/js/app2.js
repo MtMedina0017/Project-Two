@@ -231,3 +231,38 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 resize()
 
 d3.select(window).on("resize", resize)
+
+function showData(){
+d3.csv('Data/merged_data.csv').then(data => {
+    console.log(data);
+    var drinks0 = [];
+    var capita1 = [];
+    var total1 = [];
+    for (var i = 0; i <data.length; i ++) {
+        capita1.push(data[i].cost_per_capita);
+        drinks0.push(data[i].cost_per_drink);
+        total1.push(data[i].total_cost);
+    }
+
+    var capita = {
+        y:capita1,
+        type: 'box',
+        name:'Capita'
+    };
+    var drinks = {
+        y: drinks0,
+        type: 'box',
+        name:'Drinks',
+    };
+    var total = {
+        y: total1,
+        type: 'box',
+        name:'Total',
+    };
+    var data = [capita,drinks,total];
+    Plotly.newPlot('bar', data);
+}).catch(function(error){
+    console.log(error);
+});
+};
+showData()

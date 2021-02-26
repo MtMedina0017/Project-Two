@@ -14,8 +14,8 @@ CREATE TABLE breweries(
 CREATE TABLE costs(
     state VARCHAR NOT NULL,
     total_cost BIGINT,
-    cost_per_drink INT,
-    cost_per_capita INT,
+    cost_per_drink FLOAT,
+    cost_per_capita FLOAT,
     PRIMARY KEY (state)
 );
 
@@ -27,13 +27,13 @@ CREATE TABLE intensity(
 
 CREATE TABLE prevalence(
     state VARCHAR NOT NULL,
-    percentage INT,
+    percentage FLOAT,
     PRIMARY KEY (state)
 );
 
 CREATE TABLE health(
     state VARCHAR NOT NULL,
-    health_percent INT,
+    health_percent FLOAT,
     PRIMARY KEY (state)
 );
 
