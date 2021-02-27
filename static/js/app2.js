@@ -19,11 +19,13 @@ function showOptions() {
         metadataDropdown.html("");
     
         Object.entries(metadata.forEach(([key, value]) => {
-          metadataDropdown.append('h5')
+          metadataDropdown.append('p')
           .text(`${key}:${value}`);    
-        }))
+        })).catch(function (error) {
+            console.log(error);
 
-})
+});
+showOptions();
 
     //   merged_df = merged.filter(obj => obj.AL == sel)[0];
     //   var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
@@ -51,7 +53,7 @@ function showOptions() {
         // d3.select('.panel-body').append('h5').text(`Health percentage:${state_test.health_percent}%`)
         // // console.log(state)
     // });
-}
+
 function showData2() {
     d3.csv('Data/merged_data.csv').then(data => {
         // var sel = d3.select('select').property('value');
@@ -89,11 +91,11 @@ function showData2() {
     });
 }
 showData2();
-function optionChanged() {
-    val = states.property("value")
-    //console.log(val)
-    showData1();
-};
+// function optionChanged() {
+//     val = states.property("value")
+//     //console.log(val)
+//     showData1();
+// };
 
 function resize(){
     var svgArea = d3.select("#chart").select("svg");
@@ -326,8 +328,8 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 });
 };
 resize()
-showOptions()
-d3.select(window).on("resize", resize)
+
+d3.select(window).on("resize", resize);
 
 // function showData(){
 // d3.csv('Data/merged_data.csv').then(data => {
@@ -363,13 +365,3 @@ d3.select(window).on("resize", resize)
 // });
 // };
 // showData()
-
-anime({
-    targets: '#demo-svg path',
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: 'easeInOutSine',
-    duration: 3000,
-    delay: function(el,i) {return i*250},
-    direction: 'alternate',
-    loop: true
-  });
