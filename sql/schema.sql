@@ -21,7 +21,7 @@ CREATE TABLE costs(
 
 CREATE TABLE intensity(
     state VARCHAR NOT NULL,
-    average_num_of_drinks INT,
+    average_num_of_drinks FLOAT,
     PRIMARY KEY (state)
 );
 
