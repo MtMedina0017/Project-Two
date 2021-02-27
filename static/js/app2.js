@@ -1,3 +1,99 @@
+showOptions();
+
+function showOptions() {
+    d3.csv('Data/merged_data.csv', function(data) {
+      console.log(data);
+      var states= d3.select('#state');
+      var state_list = data.state
+ 
+      state_list.forEach(state=> {
+          states.append("option")
+          .property('value', state).text(state)
+    });
+
+      var sel = states.property('value');
+
+
+      state_test = data.filter(obj => obj.state == optionValue);
+      var total_cost = state_test[0].total_cost;
+        console.log(total_cost);
+
+    
+      d3.select('sample-metadata').html('');
+      Object.entries(state.forEach(([key, val]) => {
+      d3.select('.panel-body').append('h5').text(key + ':' + val);
+     
+
+    merged_df = merged.filter(obj => obj.AL == sel)[0];
+    var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
+    //console.log(merged_df);
+    //setting up variables for bar chart 
+    }))
+
+
+        // testData = data
+        // console.log(data);
+
+        // var cost = testData.map(obj=> +obj.total_cost);
+        // var capita = testData.map(obj=> +obj.cost_per_capita);
+        // var drinks = testData.map(obj=> +obj.cost_per_drink);
+        // var state = testData.map(obj=> obj.state);
+        // var Avg_drinks= testData.map(obj=> obj.average_num_of_drinks);
+        // var percentage= testData.map(obj=> obj.percentage);
+        // var health= testData.map(obj=> obj.health_percent);
+        // var state_test = data.filter(obj => obj.state == sel)[0];
+        // d3.select('.panel-body').append('h5').text(`Total Cost: $ ${state_test.total_cost}`)
+        // d3.select('.panel-body').append('h5').text(`Cost per Capita: $ ${state_test.cost_per_capita}`)
+        // d3.select('.panel-body').append('h5').text(`Cost per Drink: $ ${state_test.cost_per_drink}`)
+        // d3.select('.panel-body').append('h5').text(`Average number of Drinks:  ${state_test.average_num_of_drinks}`)
+        // d3.select('.panel-body').append('h5').text(`Percentage:${state_test.percentage}%`)
+        // d3.select('.panel-body').append('h5').text(`Health percentage:${state_test.health_percent}%`)
+        // // console.log(state)
+    });
+}
+function showData2() {
+    d3.csv('Data/merged_data.csv').then(data => {
+        // var sel = d3.select('select').property('value');
+        // newData= data
+        // console.log(newData);
+        // var drinks = data.map(obj=> +obj.cost_per_drink);
+        var drink0 = [];
+        var capita1 = [];
+        var total2= [];
+        for (var i = 0; i <data.length; i ++) {
+            drink0.push(data[i].cost_per_drink);
+            capita1.push(data[i].cost_per_capita);
+            total2.push(data[i].total_cost);
+        }
+        console.log(drink);
+        var capita = {
+            y:capita1,
+            type: 'box',
+            name:'Capita'
+        };
+        var drink = {
+            y: drink0,
+            type: 'box',
+            name:'Drinks'
+        };
+        var total ={
+            x:total2,
+            type:'box',
+            name:'Total Cost'
+        };
+        var data = [capita,drink,total];
+        Plotly.newPlot('bar', data);
+    }).catch(function(error){
+        console.log(error);
+    });
+}
+showData2();
+function optionChanged() {
+    val = states.property("value")
+    //console.log(val)
+    showData1();
+};
+
 function resize(){
     var svgArea = d3.select("#chart").select("svg");
     var svgWidth= parseInt(d3.select("#chart").style("width"));
@@ -232,40 +328,40 @@ resize()
 
 d3.select(window).on("resize", resize)
 
-function showData(){
-d3.csv('Data/merged_data.csv').then(data => {
-    console.log(data);
-    var drinks0 = [];
-    var capita1 = [];
-    var total1 = [];
-    for (var i = 0; i <data.length; i ++) {
-        capita1.push(data[i].cost_per_capita);
-        drinks0.push(data[i].cost_per_drink);
-        total1.push(data[i].total_cost);
-    }
+// function showData(){
+// d3.csv('Data/merged_data.csv').then(data => {
+//     console.log(data);
+//     var drinks0 = [];
+//     var capita1 = [];
+//     var total1 = [];
+//     for (var i = 0; i <data.length; i ++) {
+//         capita1.push(data[i].cost_per_capita);
+//         drinks0.push(data[i].cost_per_drink);
+//         total1.push(data[i].total_cost);
+//     }
 
-    var capita = {
-        y:capita1,
-        type: 'box',
-        name:'Capita'
-    };
-    var drinks = {
-        y: drinks0,
-        type: 'box',
-        name:'Drinks',
-    };
-    var total = {
-        y: total1,
-        type: 'box',
-        name:'Total',
-    };
-    var data = [capita,drinks,total];
-    Plotly.newPlot('bar', data);
-}).catch(function(error){
-    console.log(error);
-});
-};
-showData()
+//     var capita = {
+//         y:capita1,
+//         type: 'box',
+//         name:'Capita'
+//     };
+//     var drinks = {
+//         y: drinks0,
+//         type: 'box',
+//         name:'Drinks',
+//     };
+//     var total = {
+//         y: total1,
+//         type: 'box',
+//         name:'Total',
+//     };
+//     var data = [capita,drinks,total];
+//     Plotly.newPlot('bar', data);
+// }).catch(function(error){
+//     console.log(error);
+// });
+// };
+// showData()
 
 anime({
     targets: '#demo-svg path',

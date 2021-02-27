@@ -45,7 +45,7 @@ p {
   }
   
 #chart {
-    background-color: paleturquoise;
+    background-color: lightcyan;
 }
   .axis-text {
     font-weight: bold;
@@ -86,7 +86,7 @@ p {
   }
   
   .stateCircle {
-    fill: silver;
+    fill: royalblue;
     stroke: black;
     border: 5px solid;
   }
@@ -112,4 +112,7 @@ p {
   to {
     stroke-dashoffset: 0;
   }
+}
+#footText p {
+  color: #e75480;
 }
