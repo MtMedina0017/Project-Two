@@ -1,7 +1,11 @@
-<<<<<<< HEAD
-d3.csv('Data/merged_data.csv').then(function(beerData, err) {
-=======
 showOptions();
+
+
+
+
+
+
+
 
 function showOptions() {
     d3.csv('Data/merged_data.csv', function(data) {
@@ -80,12 +84,28 @@ function showData2() {
             name:'Drinks'
         };
         var total ={
-            x:total2,
+            y:total2,
             type:'box',
-            name:'Total Cost'
+            name:'Total Cost',
+            // title:"Number of Breweries per State"
         };
         var data = [capita,drink,total];
-        Plotly.newPlot('bar', data);
+        ///adding title///
+        var layout ={
+           title:'Economic Cost',
+           yaxis: {
+            title:"Cost",
+            zeroline:false
+        },
+        boxmode: 'group'
+
+            
+            
+        };
+
+
+
+        Plotly.newPlot('bar', data,layout);
     }).catch(function(error){
         console.log(error);
     });
@@ -97,7 +117,6 @@ function optionChanged() {
     showData1();
 };
 
->>>>>>> c211cdf182e79c71b264c0554043fb6323507402
 function resize(){
     var svgArea = d3.select("#chart").select("svg");
     var svgWidth= parseInt(d3.select("#chart").style("width"));
@@ -332,42 +351,6 @@ resize()
 
 d3.select(window).on("resize", resize)
 
-<<<<<<< HEAD
-function showData(){
-d3.csv('Data/merged_data.csv').then(data => {
-    console.log(data);
-    var drinks0 = [];
-    var capita1 = [];
-    var total1 = [];
-    for (var i = 0; i <data.length; i ++) {
-        capita1.push(data[i].cost_per_capita);
-        drinks0.push(data[i].cost_per_drink);
-        total1.push(data[i].total_cost);
-    }
-
-    var capita = {
-        y:capita1,
-        type: 'box',
-        name:'Capita'
-    };
-    var drinks = {
-        y: drinks0,
-        type: 'box',
-        name:'Drinks',
-    };
-    var total = {
-        y: total1,
-        type: 'box',
-        name:'Total',
-    };
-    var data = [capita,drinks,total];
-    Plotly.newPlot('bar', data);
-}).catch(function(error){
-    console.log(error);
-});
-};
-showData()
-=======
 // function showData(){
 // d3.csv('Data/merged_data.csv').then(data => {
 //     console.log(data);
@@ -402,7 +385,6 @@ showData()
 // });
 // };
 // showData()
->>>>>>> c211cdf182e79c71b264c0554043fb6323507402
 
 anime({
     targets: '#demo-svg path',

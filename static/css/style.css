@@ -45,11 +45,7 @@ p {
   }
   
 #chart {
-<<<<<<< HEAD
-    background-color: paleturquoise;
-=======
     background-color: lightcyan;
->>>>>>> c211cdf182e79c71b264c0554043fb6323507402
 }
   .axis-text {
     font-weight: bold;
@@ -90,11 +86,7 @@ p {
   }
   
   .stateCircle {
-<<<<<<< HEAD
-    fill: silver;
-=======
     fill: royalblue;
->>>>>>> c211cdf182e79c71b264c0554043fb6323507402
     stroke: black;
     border: 5px solid;
   }
@@ -120,10 +112,7 @@ p {
   to {
     stroke-dashoffset: 0;
   }
-<<<<<<< HEAD
-=======
 }
 #footText p {
   color: #e75480;
->>>>>>> c211cdf182e79c71b264c0554043fb6323507402
 }
