@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 d3.csv('Data/merged_data.csv').then(function(beerData, err) {
-=======
 function resize(){
     var svgArea = d3.select("#chart").select("svg");
     var svgWidth= parseInt(d3.select("#chart").style("width"));
@@ -28,7 +26,7 @@ function resize(){
   var chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  var chosenXAxis = "average_num_of_drinks";
+  var chosenXAxis = "health_percent";
   function xScale(alcoholData, chosenXAxis) {
     // create scales
     var xLinearScale = d3.scaleLinear()
@@ -68,8 +66,8 @@ function resize(){
 
         var label;
 
-        if (chosenXAxis === "average_num_of_drinks") {
-            label = "Intensity:";
+        if (chosenXAxis === "health_percent") {
+            label = "Poor Health:";
         }
         else {
             label = "Prevalence:";
@@ -79,7 +77,8 @@ function resize(){
             .attr("class", "tooltip")
             .offset([80, -60])
             .html(function (d) {
-                return (`State:${d.state}<br>${label} ${d[chosenXAxis]}`);
+                return (`State: ${d.state}<br>${label} ${d[chosenXAxis]}<br>
+                Number of Breweries: ${d[name]}`);
             });
 
         circlesGroup.call(toolTip);
@@ -96,7 +95,6 @@ function resize(){
     }
 
 d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
->>>>>>> 3a7750ab314829f00d35194b4baec52d5a461bf4
     if (err) throw err;
     console.log(alcoholData);
 
@@ -105,6 +103,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
         data.average_num_of_drinks = +data.average_num_of_drinks;
         data.percentage = +data.percentage;
         data.name = +data.name;
+        data.health_percent = +data.health_percent;
     });
     // xLinearScale function above csv import
     var xLinearScale = xScale(alcoholData, chosenXAxis);
@@ -126,6 +125,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 
     // append y axis
     chartGroup.append("g")
+        .classed("y-axis", true)
         .call(leftAxis);
 
     // append initial circles
@@ -135,7 +135,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d.name))
-        .attr("r", 13)
+        .attr("r", 15)
         .attr("class", "stateCircle");
     
     var stateAbbr = chartGroup.append("g")
@@ -155,9 +155,9 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
     var intensityLabel = labelsGroup.append("text")
         .attr("x", 0)
         .attr("y", 20)
-        .attr("value", "average_num_of_drinks") // value to grab for event listener
+        .attr("value", "health_percent") // value to grab for event listener
         .classed("active", true)
-        .text("Average # of drinks");
+        .text("Percentage of Poor Health");
 
 
     var prevalenceLabel = labelsGroup.append("text")
@@ -172,7 +172,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left)
         .attr("x", 0 - (height / 2))
-        .attr("dy", "1em")
+        .attr("dy", "3em")
         .classed("axis-text", true)
         .text("Number of Breweries per State");
 
@@ -207,7 +207,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
                 circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
                 // changes classes to change bold text
-                if (chosenXAxis === "average_num_of_drinks") {
+                if (chosenXAxis === "health_percent") {
                     intensityLabel
                         .classed("active", true)
                         .classed("inactive", false);
@@ -232,3 +232,48 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 resize()
 
 d3.select(window).on("resize", resize)
+
+function showData(){
+d3.csv('Data/merged_data.csv').then(data => {
+    console.log(data);
+    var drinks0 = [];
+    var capita1 = [];
+    var total1 = [];
+    for (var i = 0; i <data.length; i ++) {
+        capita1.push(data[i].cost_per_capita);
+        drinks0.push(data[i].cost_per_drink);
+        total1.push(data[i].total_cost);
+    }
+
+    var capita = {
+        y:capita1,
+        type: 'box',
+        name:'Capita'
+    };
+    var drinks = {
+        y: drinks0,
+        type: 'box',
+        name:'Drinks',
+    };
+    var total = {
+        y: total1,
+        type: 'box',
+        name:'Total',
+    };
+    var data = [capita,drinks,total];
+    Plotly.newPlot('bar', data);
+}).catch(function(error){
+    console.log(error);
+});
+};
+showData()
+
+anime({
+    targets: '#demo-svg path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 3000,
+    delay: function(el,i) {return i*250},
+    direction: 'alternate',
+    loop: true
+  });
