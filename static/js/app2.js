@@ -1,36 +1,4 @@
 
-<<<<<<< HEAD
-
-showOptions();
-// var states= d3.select('#state');
-
-
-function showOptions() {
-    d3.csv('Data/merged_data.csv', function(data) {
-    //   console.log(data);
-      var states= d3.select('#state');
-      var state_list = data.states
- 
-      state_list.forEach(state=> {
-          states.append("option")
-          .property('value', state).text(state)
-      });
-
-      var optionValue = states.property('value');
-        // var metadata = data
-        var metadataDropdown = d3.select('#sample- metadata');
-        metadata = data.filter(r => r.state == optionValue);
-          console.log(metadata);
-        metadataDropdown.html("");
-    
-        Object.entries(metadata.forEach(([key, value]) => {
-          metadataDropdown.append('h5')
-          .text(`${key}:${value}`);    
-        }))
-
-})
-
-=======
 
 function showOptions() {
     d3.csv('Data/merged_data.csv').then(function (data, err) {
@@ -70,7 +38,6 @@ function optionChanged() {
     showOptions()
 }
 showOptions()
->>>>>>> f6099d0e3b90af2f34d908b0691422d3423a7bfd
     //   merged_df = merged.filter(obj => obj.AL == sel)[0];
     //   var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
       //console.log(merged_df);
@@ -96,13 +63,8 @@ showOptions()
         // d3.select('.panel-body').append('h5').text(`Percentage:${state_test.percentage}%`)
         // d3.select('.panel-body').append('h5').text(`Health percentage:${state_test.health_percent}%`)
         // // console.log(state)
-<<<<<<< HEAD
-    //  }
-}
-=======
     // });
 
->>>>>>> f6099d0e3b90af2f34d908b0691422d3423a7bfd
 function showData2() {
     d3.csv('Data/merged_data.csv').then(data => {
         // var sel = d3.select('select').property('value');
