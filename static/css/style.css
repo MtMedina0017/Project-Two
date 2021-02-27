@@ -8,11 +8,11 @@ html {
   }
 body {
     /* position: relative; */
-    padding-bottom: 80px;
+    background-color: darkslategray;
     
 }
 .container {
-    background-color: black;
+    background-color: darkslategray;
 }
 .container h1 {
     font-size: xx-large;
@@ -28,7 +28,11 @@ p {
     font-stretch: expanded;
     color: ghostwhite;
 }
-  
+
+#sample-metadata p {
+  color: black;
+  font-size: large;
+}  
   .tooltip {
     position: absolute;
     width: 138px;
@@ -115,4 +119,11 @@ p {
 }
 #footText p {
   color: #e75480;
+  font-size: medium;
+}
+#footText a {
+  font-size: medium;
+}
+#footer {
+  background-color: darkslategray;
 }
