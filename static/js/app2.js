@@ -1,32 +1,43 @@
 
 
 function showOptions() {
-    d3.csv('Data/merged_data.csv', function(data) {
-      console.log(data);
+    d3.csv('Data/merged_data.csv').then(function (data, err) {
+        if (err) throw err;
+        console.log(data);
       var states= d3.select('#state');
-      var state_list = data.state
+      var stateList = []
+        // console.log(stateList);
  
-      state_list.forEach(state=> {
-          states.append("option")
-          .property('value', state).text(state)
-      });
+        for (var i = 0; i <data.length; i ++) {
+            stateList.push(data[i].state);
+        }
+        console.log(stateList);
+        stateList.forEach(function(row) {
+            states.append("option")
+            .property('value', row).text(row)
+        });
 
       var optionValue = states.property('value');
         // var metadata = data
         var metadataDropdown = d3.select('#sample-metadata');
-        metadata = data.filter(r => r.state == optionValue);
+        var metadata = data.filter(r => r.state == optionValue);
           console.log(metadata);
+
         metadataDropdown.html("");
     
-        Object.entries(metadata.forEach(([key, value]) => {
+        Object.entries(metadata[0]).forEach(([key, value]) => {
+            console.log(`${key}:${value}`)
           metadataDropdown.append('p')
           .text(`${key}:${value}`);    
-        })).catch(function (error) {
-            console.log(error);
-
+        });
+    }).catch(function(error) {
+    console.log(error);
 });
-showOptions();
-
+}
+function optionChanged() {
+    showOptions()
+}
+showOptions()
     //   merged_df = merged.filter(obj => obj.AL == sel)[0];
     //   var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
       //console.log(merged_df);
@@ -91,11 +102,7 @@ function showData2() {
     });
 }
 showData2();
-// function optionChanged() {
-//     val = states.property("value")
-//     //console.log(val)
-//     showData1();
-// };
+
 
 function resize(){
     var svgArea = d3.select("#chart").select("svg");
@@ -329,39 +336,4 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 };
 resize()
 
-d3.select(window).on("resize", resize);
-
-// function showData(){
-// d3.csv('Data/merged_data.csv').then(data => {
-//     console.log(data);
-//     var drinks0 = [];
-//     var capita1 = [];
-//     var total1 = [];
-//     for (var i = 0; i <data.length; i ++) {
-//         capita1.push(data[i].cost_per_capita);
-//         drinks0.push(data[i].cost_per_drink);
-//         total1.push(data[i].total_cost);
-//     }
-
-//     var capita = {
-//         y:capita1,
-//         type: 'box',
-//         name:'Capita'
-//     };
-//     var drinks = {
-//         y: drinks0,
-//         type: 'box',
-//         name:'Drinks',
-//     };
-//     var total = {
-//         y: total1,
-//         type: 'box',
-//         name:'Total',
-//     };
-//     var data = [capita,drinks,total];
-//     Plotly.newPlot('bar', data);
-// }).catch(function(error){
-//     console.log(error);
-// });
-// };
-// showData()
+d3.select(window).on("resize", resize)
