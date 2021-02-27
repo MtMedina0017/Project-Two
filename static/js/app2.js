@@ -1,41 +1,39 @@
+
+
 showOptions();
-
-
-
-
-
-
+// var states= d3.select('#state');
 
 
 function showOptions() {
     d3.csv('Data/merged_data.csv', function(data) {
-      console.log(data);
+    //   console.log(data);
       var states= d3.select('#state');
-      var state_list = data.state
+      var state_list = data.states
  
       state_list.forEach(state=> {
           states.append("option")
           .property('value', state).text(state)
-    });
+      });
 
-      var sel = states.property('value');
-
-
-      state_test = data.filter(obj => obj.state == optionValue);
-      var total_cost = state_test[0].total_cost;
-        console.log(total_cost);
-
+      var optionValue = states.property('value');
+        // var metadata = data
+        var metadataDropdown = d3.select('#sample- metadata');
+        metadata = data.filter(r => r.state == optionValue);
+          console.log(metadata);
+        metadataDropdown.html("");
     
-      d3.select('sample-metadata').html('');
-      Object.entries(state.forEach(([key, val]) => {
-      d3.select('.panel-body').append('h5').text(key + ':' + val);
-     
+        Object.entries(metadata.forEach(([key, value]) => {
+          metadataDropdown.append('h5')
+          .text(`${key}:${value}`);    
+        }))
 
-    merged_df = merged.filter(obj => obj.AL == sel)[0];
-    var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
-    //console.log(merged_df);
-    //setting up variables for bar chart 
-    }))
+})
+
+    //   merged_df = merged.filter(obj => obj.AL == sel)[0];
+    //   var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
+      //console.log(merged_df);
+      //setting up variables for bar chart 
+    // }))
 
 
         // testData = data
@@ -56,7 +54,7 @@ function showOptions() {
         // d3.select('.panel-body').append('h5').text(`Percentage:${state_test.percentage}%`)
         // d3.select('.panel-body').append('h5').text(`Health percentage:${state_test.health_percent}%`)
         // // console.log(state)
-    });
+    //  }
 }
 function showData2() {
     d3.csv('Data/merged_data.csv').then(data => {
@@ -348,7 +346,7 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
 });
 };
 resize()
-
+showOptions()
 d3.select(window).on("resize", resize)
 
 // function showData(){
