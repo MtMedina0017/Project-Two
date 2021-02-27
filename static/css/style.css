@@ -7,12 +7,13 @@ html {
     
   }
 body {
-    /* position: relative; */
-    background-color: darkslategray;
+    /* position: relative;
+    left: 40px; */
+    background-color: midnightblue;
     
 }
 .container {
-    background-color: darkslategray;
+    background-color: midnightblue;
 }
 .container h1 {
     font-size: xx-large;
@@ -49,13 +50,13 @@ p {
   }
   
 #chart {
-    background-color: lightcyan;
+    background-color: snow;
 }
   .axis-text {
     font-weight: bold;
     font-size: large;
     font-family: sans-serif;
-    fill: midnightblue;
+    fill: black;
     text-anchor: middle;
   }
   
@@ -63,7 +64,7 @@ p {
     font-weight: bold;
     font-size: large;
     fill: #000;
-    fill: midnightblue;
+    fill: black;
     transition: fill 0.3s ease-out;
     text-anchor: middle;
   }
@@ -90,7 +91,7 @@ p {
   }
   
   .stateCircle {
-    fill: royalblue;
+    fill: forestgreen;
     stroke: black;
     border: 5px solid;
   }
@@ -125,5 +126,5 @@ p {
   font-size: medium;
 }
 #footer {
-  background-color: darkslategray;
+  background-color: midnightblue;
 }

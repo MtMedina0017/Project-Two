@@ -1,5 +1,3 @@
-
-
 function showOptions() {
     d3.csv('Data/merged_data.csv').then(function (data, err) {
         if (err) throw err;
@@ -38,15 +36,7 @@ function optionChanged() {
     showOptions()
 }
 showOptions()
-    //   merged_df = merged.filter(obj => obj.AL == sel)[0];
-    //   var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
-      //console.log(merged_df);
-      //setting up variables for bar chart 
-    // }))
 
-
-        // testData = data
-        // console.log(data);
 
         // var cost = testData.map(obj=> +obj.total_cost);
         // var capita = testData.map(obj=> +obj.cost_per_capita);
@@ -96,7 +86,15 @@ function showData2() {
             name:'Total Cost'
         };
         var data = [capita,drink,total];
-        Plotly.newPlot('bar', data);
+        var layout ={
+            title:'Costs of Excessive Drinking in the USA',
+            yaxis: {
+             title:"Cost",
+             zeroline:false
+         },
+         boxmode: 'group'
+         };
+        Plotly.newPlot('bar', data, layout);
     }).catch(function(error){
         console.log(error);
     });
