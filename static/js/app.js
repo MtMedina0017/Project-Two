@@ -2,6 +2,8 @@ function showOptions() {
     d3.csv('Data/merged_data.csv').then(function (data, err) {
         if (err) throw err;
         console.log(data);
+        
+
       var states= d3.select('#state');
       var stateList = []
         // console.log(stateList);
@@ -22,6 +24,20 @@ function showOptions() {
           console.log(metadata);
 
         metadataDropdown.html("");
+
+        var capitals = [{ // creating an object 'capital' with 
+                "Burma": "Naypyitaw" // key "Burma" and value "Naypitaw" 
+            }]; 
+            console.log(capitals); 
+  
+            function rename() { // function to rename on button click 
+                capitals = capitals.map(function(obj) { 
+                    obj['Myanmar'] = obj['Burma']; // Assign new key 
+                    delete obj['Burma']; // Delete old key 
+                    return obj; 
+                }); 
+                console.log(capitals); 
+            } 
     
         Object.entries(metadata[0]).forEach(([key, value]) => {
             console.log(`${key}:${value}`)
