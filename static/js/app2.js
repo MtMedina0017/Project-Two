@@ -1,5 +1,3 @@
-
-
 function showOptions() {
     d3.csv('Data/merged_data.csv').then(function (data, err) {
         if (err) throw err;
@@ -28,7 +26,42 @@ function showOptions() {
         Object.entries(metadata[0]).forEach(([key, value]) => {
             console.log(`${key}:${value}`)
           metadataDropdown.append('p')
-          .text(`${key}:${value}`);    
+          .text(`${key}:${value}`); 
+          
+
+          function renameKeys(obj, newKeys) {
+            const keyValues = Object.keys(obj).map(key => {
+              const newKey = newKeys[key] || key;
+              return { [newKey]: obj[key] };
+            });
+            return Object.assign({}, ...keyValues);
+          }
+          console.log(renameKeys)
+
+
+          const obj = { a: "total_cost", b: "cost" };
+          const newKeys = { a: "A", c: "C" };
+          const renamedObj = renameKeys(obj, newKeys);
+          console.log(renamedObj);
+
+        //   var cost = metadata.map(obj=> +obj.total_cost);
+        // //   var capita = stateList.map(obj=> +obj.cost_per_capita);
+        // //   var drinks = testData.map(obj=> +obj.cost_per_drink);
+        // //   var state = testData.map(obj=> obj.state);
+        // //   var Avg_drinks= testData.map(obj=> obj.average_num_of_drinks);
+        // //   var percentage= testData.map(obj=> obj.percentage);
+        // //   var health= testData.map(obj=> obj.health_percent);
+        //   var drop_drinks = data.filter(obj => obj.stateList == optionValue)[0];
+        //   d3.select('.panel-body').append('h4').text(`Total Cost: $ ${drop_drinks.total_cost}`)
+        //   d3.select('.panel-body').append('h4').text(`Cost per Capita: $ ${stateList.cost_per_capita}`)
+        //   d3.select('.panel-body').append('h4').text(`Cost per Drink: $ ${state_test.cost_per_drink}`)
+        //   d3.select('.panel-body').append('h4').text(`Average number of Drinks:  ${state_test.average_num_of_drinks}`)
+        //   d3.select('.panel-body').append('h4').text(`Percentage:${state_test.percentage}%`)
+        //   d3.select('.panel-body').append('h4').text(`Health percentage:${state_test.health_percent}%`)
+          
+
+
+
         });
     }).catch(function(error) {
     console.log(error);
@@ -38,15 +71,7 @@ function optionChanged() {
     showOptions()
 }
 showOptions()
-    //   merged_df = merged.filter(obj => obj.AL == sel)[0];
-    //   var { state, total_cost, cost_per_drink, cost_per_capita } = merged_df
-      //console.log(merged_df);
-      //setting up variables for bar chart 
-    // }))
 
-
-        // testData = data
-        // console.log(data);
 
         // var cost = testData.map(obj=> +obj.total_cost);
         // var capita = testData.map(obj=> +obj.cost_per_capita);
@@ -97,22 +122,15 @@ function showData2() {
             // title:"Number of Breweries per State"
         };
         var data = [capita,drink,total];
-        ///adding title///
         var layout ={
-           title:'Economic Cost',
-           yaxis: {
-            title:"Cost",
-            zeroline:false
-        },
-        boxmode: 'group'
-
-            
-            
-        };
-
-
-
-        Plotly.newPlot('bar', data,layout);
+            title:'Costs of Excessive Drinking in the USA',
+            yaxis: {
+             title:"Cost",
+             zeroline:false
+         },
+         boxmode: 'group'
+         };
+        Plotly.newPlot('bar', data, layout);
     }).catch(function(error){
         console.log(error);
     });
