@@ -87,8 +87,13 @@ function optionChanged() {
     showOptions()
 }
 showOptions()
+<<<<<<< HEAD:static/js/app.js
 
 
+=======
+
+
+>>>>>>> 99f95dc05d5da455dd7c6df4dc3d61f56cfa0f6f:static/js/app2.js
         // var cost = testData.map(obj=> +obj.total_cost);
         // var capita = testData.map(obj=> +obj.cost_per_capita);
         // var drinks = testData.map(obj=> +obj.cost_per_drink);
