@@ -66,29 +66,9 @@ function optionChanged() {
 showOptions()
 
 
-        // var cost = testData.map(obj=> +obj.total_cost);
-        // var capita = testData.map(obj=> +obj.cost_per_capita);
-        // var drinks = testData.map(obj=> +obj.cost_per_drink);
-        // var state = testData.map(obj=> obj.state);
-        // var Avg_drinks= testData.map(obj=> obj.average_num_of_drinks);
-        // var percentage= testData.map(obj=> obj.percentage);
-        // var health= testData.map(obj=> obj.health_percent);
-        // var state_test = data.filter(obj => obj.state == sel)[0];
-        // d3.select('.panel-body').append('h5').text(`Total Cost: $ ${state_test.total_cost}`)
-        // d3.select('.panel-body').append('h5').text(`Cost per Capita: $ ${state_test.cost_per_capita}`)
-        // d3.select('.panel-body').append('h5').text(`Cost per Drink: $ ${state_test.cost_per_drink}`)
-        // d3.select('.panel-body').append('h5').text(`Average number of Drinks:  ${state_test.average_num_of_drinks}`)
-        // d3.select('.panel-body').append('h5').text(`Percentage:${state_test.percentage}%`)
-        // d3.select('.panel-body').append('h5').text(`Health percentage:${state_test.health_percent}%`)
-        // // console.log(state)
-    // });
-
 function showData2() {
     d3.csv('Data/merged_data.csv').then(data => {
-        // var sel = d3.select('select').property('value');
-        // newData= data
-        // console.log(newData);
-        // var drinks = data.map(obj=> +obj.cost_per_drink);
+
         var drink0 = [];
         var capita1 = [];
         var total2= [];
@@ -137,8 +117,7 @@ function resize(){
     if (!svgArea.empty()) {
       svgArea.remove();
     }
-  // var w = parseInt(d3.select("#scatter").style("width"));
-  // var h = w - w / 3.9;
+
   var margin = {
     top: 20,
     right: 100,

@@ -8,7 +8,7 @@ var simplemaps_usmap_mapdata={
     popups: "detect",
     
     //State defaults
-    state_description: "State Description",
+    state_description: "Drinks: #data#",
     state_color: "#88A4BC",
     state_hover_color: "#3B729F",
     state_url: "",
@@ -54,7 +54,7 @@ var simplemaps_usmap_mapdata={
     popup_opacity: 0.9,
     popup_shadow: 1,
     popup_corners: 5,
-    popup_font: "12px/1.5 Verdana, Arial, Helvetica, sans-serif",
+    popup_font: "20px/1.5 Verdana, Arial, Helvetica, sans-serif",
     popup_nocss: "no",
     
     //Advanced settings
@@ -72,209 +72,258 @@ var simplemaps_usmap_mapdata={
   state_specific: {
     HI: {
       color: "#990000",
-      name: "Hawaii"
+      name: "Hawaii",
+      description: "Number of Drinks Per Person: 7.6 <br> Gallons Consumed Per Capita: 2.63"
     },
     AK: {
       color: "#990000",
-      name: "Alaska"
+      name: "Alaska",
+      description: "Number of Drinks Per Person: 7.8 <br> Gallons Consumed Per Capita: 2.94"
     },
     FL: {
       color: "#ff3333",
-      name: "Florida"
+      name: "Florida",
+      description: "Number of Drinks Per Person: 6.8 <br> Gallons Consumed Per Capita: 2.65"
     },
     NH: {
       color: "#ff6666",
       name: "New Hampshire",
-      description: " "
+      description: "Number of Drinks Per Person: 6.4 <br> Gallons Consumed Per Capita: 4.76"
     },
     VT: {
       color: "#ff3333",
-      name: "Vermont"
+      name: "Vermont",
+      description: "Number of Drinks Per Person: 6.8 <br> Gallons Consumed Per Capita: 3.08"
     },
     ME: {
       color: "#cc0000",
-      name: "Maine"
+      name: "Maine",
+      description: "Number of Drinks Per Person: 7.4 <br> Gallons Consumed Per Capita: 2.81"
     },
     RI: {
       color: "#ff0000",
-      name: "Rhode Island"
+      name: "Rhode Island",
+      description: "Number of Drinks Per Person: 7 <br> Gallons Consumed Per Capita: 2.57"
     },
     NY: {
       color: "#ff3333",
-      name: "New York"
+      name: "New York",
+      description: "Number of Drinks Per Person: 6.8 <br> Gallons Consumed Per Capita: 2.22"
     },
     PA: {
       color: "#ff0000",
-      name: "Pennsylvania"
+      name: "Pennsylvania",
+      description: "Number of Drinks Per Person: 7 <br> Gallons Consumed Per Capita: 2.36"
     },
     NJ: {
       color: "#cc0000",
-      name: "New Jersey"
+      name: "New Jersey",
+      description: "Number of Drinks Per Person: 7.2 <br> Gallons Consumed Per Capita: 2.34"
     },
     DE: {
       color: "#ff0000",
-      name: "Delaware"
+      name: "Delaware",
+      description: "Number of Drinks Per Person: 7 <br> Gallons Consumed Per Capita: 3.72"
     },
     MD: {
       color: "#ff6666",
-      name: "Maryland"
+      name: "Maryland",
+      description: "Number of Drinks Per Person: 6.6 <br> Gallons Consumed Per Capita: 2.15"
     },
     VA: {
       color: "#ff0000",
-      name: "Virginia"
+      name: "Virginia",
+      description: "Number of Drinks Per Person: 7.1 <br> Gallons Consumed Per Capita: 2.14"
     },
     WV: {
       color: "#990000",
-      name: "West Virginia"
+      name: "West Virginia",
+      description: "Number of Drinks Per Person: 7.9 <br> Gallons Consumed Per Capita: 1.76"
     },
     OH: {
       color: "#990000",
-      name: "Ohio"
+      name: "Ohio",
+      description: "Number of Drinks Per Person: 7.7 <br> Gallons Consumed Per Capita: 2.04"
     },
     IN: {
       color: "#cc0000",
-      name: "Indiana"
+      name: "Indiana",
+      description: "Number of Drinks Per Person: 7.2 <br> Gallons Consumed Per Capita: 2.17"
     },
     IL: {
       color: "#ff0000",
-      name: "Illinois"
+      name: "Illinois",
+      description: "Number of Drinks Per Person: 7.1 <br> Gallons Consumed Per Capita: 2.32"
     },
     CT: {
       color: "#ff0000",
-      name: "Connecticut"
+      name: "Connecticut",
+      description: "Number of Drinks Per Person: 7 <br> Gallons Consumed Per Capita: 2.45"
     },
     WI: {
       color: "#cc0000",
-      name: "Wisconsin"
+      name: "Wisconsin",
+      description: "Number of Drinks Per Person: 7.2 <br> Gallons Consumed Per Capita: 2.98"
     },
     NC: {
       color: "#ff6666",
-      name: "North Carolina"
+      name: "North Carolina",
+      description: "Number of Drinks Per Person: 6.4 <br> Gallons Consumed Per Capita: 2.13"
     },
     DC: {
       color: "#ff6666",
-      name: "District of Columbia"
+      name: "District of Columbia",
+      description: "Number of Drinks Per Person: 6.2 <br> Gallons Consumed Per Capita: 2.00"
     },
     MA: {
       color: "#ff6666",
-      name: "Massachusetts"
+      name: "Massachusetts",
+      description: "Number of Drinks Per Person: 6.5 <br> Gallons Consumed Per Capita: 2.57"
     },
     TN: {
       color: "#ff0000",
-      name: "Tennessee"
+      name: "Tennessee",
+      description: "Number of Drinks Per Person: 7 <br> Gallons Consumed Per Capita: 2.14"
     },
     AR: {
       color: "#990000",
-      name: "Arkansas"
+      name: "Arkansas",
+      description: "Number of Drinks Per Person: 8.3 <br> Gallons Consumed Per Capita: 1.80"
     },
     MO: {
       color: "#990000",
-      name: "Missouri"
+      name: "Missouri",
+      description: "Number of Drinks Per Person: 7.8 <br> Gallons Consumed Per Capita: 2.49"
     },
     GA: {
       color: "#ff3333",
-      name: "Georgia"
+      name: "Georgia",
+      description: "Number of Drinks Per Person: 6.9 <br> Gallons Consumed Per Capita: 1.94"
     },
     SC: {
       color: "#cc0000",
-      name: "South Carolina"
+      name: "South Carolina",
+      description: "Number of Drinks Per Person: 7.4 <br> Gallons Consumed Per Capita: 2.22"
     },
     KY: {
       color: "#990000",
-      name: "Kentucky"
+      name: "Kentucky",
+      description: "Number of Drinks Per Person: 7.8 <br> Gallons Consumed Per Capita: 1.98"
     },
     AL: {
       color: "#cc0000",
-      name: "Alabama"
+      name: "Alabama",
+      description: "Number of Drinks Per Person: 7.3 <br> Gallons Consumed Per Capita: 2.01"
     },
     LA: {
       color: "#990000",
-      name: "Louisiana"
+      name: "Louisiana",
+      description: "Number of Drinks Per Person: 7.6 <br> Gallons Consumed Per Capita: 2.59"
     },
     MS: {
       color: "#990000",
-      name: "Mississippi"
+      name: "Mississippi",
+      description: "Number of Drinks Per Person: 7.6 <br> Gallons Consumed Per Capita: 2.23"
     },
     IA: {
       color: "#990000",
-      name: "Iowa"
+      name: "Iowa",
+      description: "Number of Drinks Per Person: 7.6 <br> Gallons Consumed Per Capita: 2.40"
     },
     MN: {
       color: "#cc0000",
-      name: "Minnesota"
+      name: "Minnesota",
+      description: "Number of Drinks Per Person: 7.2 <br> Gallons Consumed Per Capita: 2.77"
     },
     OK: {
       color: "#cc0000",
-      name: "Oklahoma"
+      name: "Oklahoma",
+      description: "Number of Drinks Per Person: 7.5 <br> Gallons Consumed Per Capita: 1.88"
     },
     TX: {
       color: "#cc0000",
-      name: "Texas"
+      name: "Texas",
+      description: "Number of Drinks Per Person: 7.2 <br> Gallons Consumed Per Capita: 2.34"
     },
     NM: {
       color: "#ff3333",
-      name: "New Mexico"
+      name: "New Mexico",
+      description: "Number of Drinks Per Person: 6.9 <br> Gallons Consumed Per Capita: 2.27"
     },
     KS: {
       color: "#ff0000",
-      name: "Kansas"
+      name: "Kansas",
+      description: "Number of Drinks Per Person: 7 <br> Gallons Consumed Per Capita: 1.92"
     },
     NE: {
       color: "#990000",
-      name: "Nebraska"
+      name: "Nebraska",
+      description: "Number of Drinks Per Person: 7.7 <br> Gallons Consumed Per Capita: 2.23"
     },
     SD: {
       color: "#990000",
-      name: "South Dakota"
+      name: "South Dakota",
+      description: "Number of Drinks Per Person: 7.7 <br> Gallons Consumed Per Capita: 2.87"
     },
     ND: {
       color: "#990000",
       name: "North Dakota",
-      description: " "
+      description: "Number of Drinks Per Person: 7.7 <br> Gallons Consumed Per Capita: 3.26"
     },
     WY: {
       color: "#ff0000",
-      name: "Wyoming"
+      name: "Wyoming",
+      description: "Number of Drinks Per Person: 7 <br> Gallons Consumed Per Capita: 2.67"
     },
     MT: {
       color: "#cc0000",
-      name: "Montana"
+      name: "Montana",
+      description: "Number of Drinks Per Person: 7.2 <br> Gallons Consumed Per Capita: 3.11"
     },
     CO: {
       color: "#ff6666",
-      name: "Colorado"
+      name: "Colorado",
+      description: "Number of Drinks Per Person: 6.6 <br> Gallons Consumed Per Capita: 2.81"
     },
     UT: {
       color: "#cc0000",
-      name: "Utah"
+      name: "Utah",
+      description: "Number of Drinks Per Person: 7.3 <br> Gallons Consumed Per Capita: 1.34"
     },
     AZ: {
       color: "#ff0000",
-      name: "Arizona"
+      name: "Arizona",
+      description: "Number of Drinks Per Person: 7.1 <br> Gallons Consumed Per Capita: 2.31"
     },
     NV: {
       color: "#cc0000",
-      name: "Nevada"
+      name: "Nevada",
+      description: "Number of Drinks Per Person: 7.2 <br> Gallons Consumed Per Capita: 3.46"
     },
     OR: {
       color: "#ff6666",
-      name: "Oregon"
+      name: "Oregon",
+      description: "Number of Drinks Per Person: 6.3 <br> Gallons Consumed Per Capita: 2.75"
     },
     WA: {
       color: "#ff6666",
-      name: "Washington"
+      name: "Washington",
+      description: "Number of Drinks Per Person: 6.2 <br> Gallons Consumed Per Capita: 2.26"
     },
     CA: {
       color: "#ff6666",
-      name: "California"
+      name: "California",
+      description: "Number of Drinks Per Person: 6.5 <br> Gallons Consumed Per Capita: 2.33"
     },
     MI: {
       color: "#cc0000",
-      name: "Michigan"
+      name: "Michigan",
+      description: "Number of Drinks Per Person: 7.3 <br> Gallons Consumed Per Capita: 2.34"
     },
     ID: {
       color: "#cc0000",
-      name: "Idaho"
+      name: "Idaho",
+      description: "Number of Drinks Per Person: 7.4 <br> Gallons Consumed Per Capita: 2.92"
     },
     GU: {
       hide: "yes",

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Intensity of Drinking Among US Adults</title>
+
+    <!-- Default Variables -->
+    <script src="mapdata.js"></script>
+
+    <!-- Customizations -->
+    <script src="custom.js"></script>
+
+    <!-- Renders Map -->
+    <script src="usmap.js"></script>
+
+  </head>
+  <body>
+  <h1>Binge Drinking Among the U.S.</h1>
+  <h2>Intensity of drinking is based on 6 or more drinks in a two hour period</h2>
+  <h3>Click on each state to view average number of drinks and average cost per drink</h3>
+    <div id="map"></div>
+
+    <style type="text/css">
+      .legend{color: black; width: 100%; font-family: arial; font-size: 20px;}    
+      .legend_color {display: table; width: 100%; background: white; list-style: none; margin: 0px; padding: 0px; }
+      .legend_color li{width: 20%;  height: 20px; display: table-cell;}
+      .legend_label {display: table; width: 100%;  padding: 0px; padding-left: 10%; padding-right: 10%; list-style: none; margin: 0px; box-sizing: border-box;}
+      .legend_label li{width: 25%;  height: 20px; display: table-cell; text-align: center;}
+      </style>
+      <div class="legend">
+        <ul class="legend_label">
+          <li>6.2 to 6.6</li><li>6.7 to 7.2</li><li>7.3 to 7.9</li><li>8+</li>
+        </ul>
+        <ul class="legend_color">
+          <li style="background-color: #ff6666"></li><li style="background-color: #ff3333"></li><li style="background-color: #ff0000"></li><li style="background-color: #990808"></li><li style="background-color: #990000"></li>
+        </ul>
+      </div>
+	</body>
+</html>
+      
+    
+
