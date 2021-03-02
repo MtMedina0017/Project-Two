@@ -54,7 +54,7 @@ p {
 }
   .axis-text {
     font-weight: bold;
-    font-size: large;
+    font-size: x-large;
     font-family: sans-serif;
     fill: black;
     text-anchor: middle;
@@ -62,7 +62,7 @@ p {
   
   .active {
     font-weight: bold;
-    font-size: large;
+    font-size: x-large;
     fill: #000;
     fill: black;
     transition: fill 0.3s ease-out;
@@ -127,4 +127,8 @@ p {
 }
 #footer {
   background-color: midnightblue;
+}
+.chartText p {
+  font-size: x-large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }

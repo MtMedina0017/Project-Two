@@ -266,23 +266,25 @@ d3.csv('Data/merged_data.csv').then(function (alcoholData, err) {
         .attr("x", 0)
         .attr("y", 20)
         .attr("value", "health_percent") // value to grab for event listener
+        .attr("dy", "1em")
         .classed("active", true)
-        .text("Percentage of Poor Health");
+        .text("Percentage of Adults Who Reported Fair or Poor Health");
 
 
     var prevalenceLabel = labelsGroup.append("text")
         .attr("x", 0)
-        .attr("y", 40)
+        .attr("y", 50)
         .attr("value", "percentage") // value to grab for event listener
+        .attr("dy", "1em")
         .classed("inactive", true)
-        .text("Prevalence Percentage of Bringe Drinking");
+        .text("Prevalence Percentage of Bringe Drinking Among US Adults, 2015");
 
     // append y axis
     chartGroup.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left)
         .attr("x", 0 - (height / 2))
-        .attr("dy", "3em")
+        .attr("dy", "2em")
         .classed("axis-text", true)
         .text("Number of Breweries per State");
 
