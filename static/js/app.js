@@ -25,24 +25,36 @@ function showOptions() {
 
         metadataDropdown.html("");
 
-        var capitals = [{ // creating an object 'capital' with 
-                "Burma": "Naypyitaw" // key "Burma" and value "Naypitaw" 
-            }]; 
-            console.log(capitals); 
-  
-            function rename() { // function to rename on button click 
-                capitals = capitals.map(function(obj) { 
-                    obj['Myanmar'] = obj['Burma']; // Assign new key 
-                    delete obj['Burma']; // Delete old key 
-                    return obj; 
-                }); 
-                console.log(capitals); 
-            } 
+        function rename() { // function to rename on button click 
+            metadata = metadata.map(function(obj){
+                obj["Index"] = obj[""];
+                delete obj[""];
+                obj["State"] = obj["state"];
+                delete obj["state"];
+                obj["Number of Breweries"] = obj["name"];
+                delete obj["name"];
+                obj["Total Costs"] = obj["total_cost"];
+                delete obj["total_cost"];
+                obj["Costs Per Drink"] = obj["cost_per_drink"];
+                delete obj["cost_per_drink"];
+                obj["Costs per Capita"] = obj["cost_per_capita"];
+                delete obj["cost_per_capita"];
+                obj["Avg Number of Drinks"] = obj["average_num_of_drinks"];
+                delete obj["average_num_of_drinks"];
+                obj["Prevalence Percentage"] = obj["percentage"];
+                delete obj["percentage"];
+                obj["Percentage of Poor Health"] = obj["health_percent"];
+                delete obj["health_percent"];
+                return obj;
+            });        
+        };
+        rename();
+
     
         Object.entries(metadata[0]).forEach(([key, value]) => {
             console.log(`${key}:${value}`)
           metadataDropdown.append('p')
-          .text(`${key}:${value}`);    
+          .text(`${key}: ${value}`);    
         });
     }).catch(function(error) {
     console.log(error);
@@ -130,7 +142,7 @@ function resize(){
   var margin = {
     top: 20,
     right: 100,
-    bottom: 80,
+    bottom: 100,
     left: 100
   };
   var width = svgWidth - margin.left - margin.right;

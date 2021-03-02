@@ -42,7 +42,7 @@
           <div id="sample-metadata" class="panel-body"></div>
         </div>
         <div id="box-info">
-          <p style="color: coral;" >This chart shows the costs of all States combined</p>
+          <p>This chart shows the costs of all States combined</p>
         </div>
       </div>
       <div class="col-md-9">
@@ -50,20 +50,44 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-9">
-        <div id="chart"></div>
+      <div class="col-md-12">
+        <div class= "chartText">
+          <p>Represents number of breweries</p>
+        </div>
       </div>
-      <div class="col-md-3">
-        <div class= "chartText"></div>
-        <p> The chart to the right shows the correlation between the number of breweries a 
-          state has and the percentage of poor health in that state, and the percentage
-          of prevalence of binge drinkers in the state</p>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="chart"></div>
       </div>
     </div>
   </div>
+  <h1><a href="C:/Users/medinam/Desktop/DATABOOTCAMP/Project 2/Final Map/test.html" title="Intensity of Drinking"></h1></a>
   <div id="map">
-    <h1>Intensity of Drinking Among US Adults</h1>
-  </div>
+    <!DOCTYPE html>
+  <html>
+  <body>
+    <div style="position:relative;">
+      <iframe src="http://127.0.0.1:5500/test.html" width="1200" height="800">
+      <a href="http://127.0.0.1:5500/test.html" style="position:absolute; top:0; left:0; display:inline-block; width:500px; height:500px; z-index:5;">Intensity</a>
+      </div>
+  <iframe src="http://127.0.0.1:5500/test.html"></iframe>
+  <script>
+  function myFunction() {
+    var frames = window.frames;
+    var i;
+    for (i = 0; i < frames.length; i++) {
+      frames[i].location = "http://127.0.0.1:5500/test.html";
+    }
+    iframe { 
+              width: 100%; 
+              height: 100%; 
+              border: none; 
+          } 
+  }
+    </script>
+    </body>
+    </html>
   <div id="footer">
     <div id="footText">
       <p>Project work completed by Brenda Maldonado, Marcela Medina, and Teresa Luna<br>Data was found at the Centers for Disease Control and Prevention website. Link listed below:</p>
