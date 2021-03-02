@@ -55,6 +55,7 @@ function showOptions() {
             console.log(`${key}:${value}`)
           metadataDropdown.append('p')
 <<<<<<< HEAD
+<<<<<<< HEAD
           .text(`${key}:${value}`); 
           
 
@@ -94,6 +95,9 @@ function showOptions() {
 =======
           .text(`${key}: ${value}`);    
 >>>>>>> 9c619016fc2000158be8c1e49637bf15243d3459
+=======
+          .text(`${key}: ${value}`);    
+>>>>>>> 9c619016fc2000158be8c1e49637bf15243d3459
         });
     }).catch(function(error) {
     console.log(error);
@@ -110,6 +114,7 @@ showOptions()
 =======
 
 
+<<<<<<< HEAD
 >>>>>>> 99f95dc05d5da455dd7c6df4dc3d61f56cfa0f6f:static/js/app2.js
         // var cost = testData.map(obj=> +obj.total_cost);
         // var capita = testData.map(obj=> +obj.cost_per_capita);
@@ -128,6 +133,8 @@ showOptions()
         // // console.log(state)
     // });
 
+=======
+>>>>>>> 9c619016fc2000158be8c1e49637bf15243d3459
 =======
 >>>>>>> 9c619016fc2000158be8c1e49637bf15243d3459
 function showData2() {
