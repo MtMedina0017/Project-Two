@@ -18,7 +18,7 @@ function showOptions() {
         });
 
       var optionValue = states.property('value');
-        // var metadata = data
+
         var metadataDropdown = d3.select('#sample-metadata');
         var metadata = data.filter(r => r.state == optionValue);
           console.log(metadata);
