@@ -188,7 +188,7 @@ function resize(){
             .offset([80, -60])
             .html(function (d) {
                 return (`State: ${d.state}<br>${label} ${d[chosenXAxis]}<br>
-                Number of Breweries: ${d[name]}`);
+                Number of Breweries: ${d.name}`);
             });
 
         circlesGroup.call(toolTip);
@@ -197,7 +197,7 @@ function resize(){
             toolTip.show(data);
         })
             // onmouseout event
-            .on("mouseout", function (data, index) {
+            .on("mouseout", function (data) {
                 toolTip.hide(data);
             });
 
